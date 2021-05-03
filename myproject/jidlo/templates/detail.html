@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail jídla{% endblock %}
+
+{% block content %}
+    <hr>
+    <h2 class="text-center">{{ jidlo.nazev }}</h2>
+    <hr>
+    <div class="row">
+        <div class="col text-center">
+            <p><img src="{{ jidlo.foto.url }}" alt="{{ jidlo.nazev }}" width="75%"></p>
+        </div>
+        <div class="col">
+            <p><b>Cena:</b> {{ jidlo.cena }} kč</p>
+            <hr>
+            <p><b>Hodnocení:</b> {% for star in "x"|ljust:jidlo.hodnocení %} * {% endfor %}</p>
+            <hr>
+            <p><b>Kategorie:</b> {{ jidlo.kategorie.oblast }} - {{ jidlo.kategorie.oznaceni_kategorie }}</p>
+            <hr>
+            <p><b>Popis:</b> {{ jidlo.popis }}</p>
+        </div>
+    </div>
+{% endblock %}
